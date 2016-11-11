@@ -1,0 +1,9 @@
+Package: me.abit.flex
+Name: AFlexLoader
+Depends: mobilesubstrate, preferenceloader (>= 2.2), applist (>= 1.5.11)
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: FLEX Loader
+Maintainer: A
+Author: A
+Section: Tweaks

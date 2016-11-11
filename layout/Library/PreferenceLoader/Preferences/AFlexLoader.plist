@@ -1,0 +1,29 @@
+{
+	entry = {
+		bundle = AppList;
+		cell = PSLinkCell;
+		icon = "/Library/PreferenceLoader/Preferences/FLEXLoader.png";
+		isController = 1;
+		label = AFLEXLoader;
+		ALSettingsPath = "/var/mobile/Library/Preferences/me.abit.AFlexLoader.plist";
+		ALSettingsKeyPrefix = "AFlexLoaderEnabled-";
+		ALChangeNotification = "me.abit.AFlexLoader.settingschanged";
+		"ALSettingsDefaultValue" = 0;
+		ALSectionDescriptors = (
+			{
+				title = "User Applications";
+				predicate = "(isSystemApplication = FALSE)";
+				"cell-class-name" = ALSwitchCell;
+				"icon-size" = 29;
+				"suppress-hidden-apps" = 1;
+			},
+			{
+				title = "System Applications";
+				predicate = "(isSystemApplication = TRUE)";
+				"cell-class-name" = ALSwitchCell;
+				"icon-size" = 29;
+				"suppress-hidden-apps" = 1;
+			},
+		);
+	};
+}
