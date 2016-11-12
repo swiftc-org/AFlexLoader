@@ -1,4 +1,4 @@
-THEOS_DEVICE_IP = 192.168.31.145
+THEOS_DEVICE_IP = 192.168.31.248
 THEOS_DEVICE_PORT = 22
 
 export ARCHS = arm64 armv7
@@ -18,6 +18,6 @@ AFlexLoader_LDFLAGS += -lz -lsqlite3
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
-	install.exec "killall -9 WeChat"
+	install.exec "killall -9 SpringBoard"
 
 

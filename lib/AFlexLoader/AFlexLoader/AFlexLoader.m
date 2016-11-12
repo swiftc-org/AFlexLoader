@@ -23,9 +23,7 @@
  }
 
  - (void)showExplorer {
-     NSLog(@"fuck you");
  	 FLEXManager *mgr = [FLEXManager sharedManager];
-     NSLog(@"mgr: %@", mgr);
      [mgr showExplorer];
  }
 

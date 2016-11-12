@@ -1,4 +1,4 @@
-Package: me.abit.flex
+Package: AFlexLoader
 Name: AFlexLoader
 Depends: mobilesubstrate, preferenceloader (>= 2.2), applist (>= 1.5.11)
 Version: 0.0.1

@@ -6,7 +6,8 @@
 
 %ctor {
 
-	NSDictionary *preferences = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/me.abit.AFlexLoader.plist"];
+	//NSDictionary *preferences = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/me.abit.AFlexLoader.plist"];
+	NSDictionary *preferences = [NSDictionary dictionaryWithContentsOfFile:@"/User/Library/Preferences/me.abit.AFlexLoader.plist"];
 	NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
 	NSString *loaderEnabledKey = [NSString stringWithFormat:@"AFlexLoaderEnabled-%@", bundleID];
 	if ([preferences[loaderEnabledKey] boolValue]) {

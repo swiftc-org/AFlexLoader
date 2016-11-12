@@ -9,6 +9,7 @@
 		ALSettingsKeyPrefix = "AFlexLoaderEnabled-";
 		ALChangeNotification = "me.abit.AFlexLoader.settingschanged";
 		"ALSettingsDefaultValue" = 0;
+		ALAllowsSelection = 1;
 		ALSectionDescriptors = (
 			{
 				title = "User Applications";
