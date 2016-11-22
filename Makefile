@@ -14,6 +14,7 @@ AFlexLoader_OBJ_FILES = lib/libAFlexLoader.a
 
 AFlexLoader_FRAMEWORKS += Foundation UIKit
 AFlexLoader_LDFLAGS += -lz -lsqlite3
+AFlexLoader_LDFLAGS += -current_version 1.0.0 -compatibility_version 1.0.0
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
