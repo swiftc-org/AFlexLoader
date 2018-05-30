@@ -30,6 +30,12 @@
 /// The response cache uses an NSCache, so it may purge prior to hitting the limit when the app is under memory pressure.
 @property (nonatomic, assign) NSUInteger networkResponseCacheByteLimit;
 
+/// Requests whose host ends with one of the blacklisted entries in this array will be not be recorded (eg. google.com).
+/// Wildcard or subdomain entries are not required (eg. google.com will match any subdomain under google.com).
+/// Useful to remove requests that are typically noisy, such as analytics requests that you aren't interested in tracking.
+@property (nonatomic, copy) NSArray<NSString *> *networkRequestHostBlacklist;
+
+
 #pragma mark - Keyboard Shortcuts
 
 /// Simulator keyboard shortcuts are enabled by default.
@@ -48,6 +54,10 @@
 - (void)registerSimulatorShortcutWithKey:(NSString *)key modifiers:(UIKeyModifierFlags)modifiers action:(dispatch_block_t)action description:(NSString *)description;
 
 #pragma mark - Extensions
+
+/// Default database password is @c nil by default.
+/// Set this to the password you want the databases to open with.
+@property (copy, nonatomic) NSString *defaultSqliteDatabasePassword;
 
 /// Adds an entry at the bottom of the list of Global State items. Call this method before this view controller is displayed.
 /// @param entryName The string to be displayed in the cell.

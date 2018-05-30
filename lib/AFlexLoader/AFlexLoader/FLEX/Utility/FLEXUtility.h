@@ -6,11 +6,15 @@
 //  Copyright (c) 2014 Flipboard. All rights reserved.
 //
 
+#import <Availability.h>
+#import <AvailabilityInternal.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
 #define FLEXFloor(x) (floor([[UIScreen mainScreen] scale] * (x)) / [[UIScreen mainScreen] scale])
+
+#define FLEX_AT_LEAST_IOS11_SDK defined(__IPHONE_11_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0)
 
 @interface FLEXUtility : NSObject
 
@@ -35,12 +39,13 @@
 + (UIImage *)thumbnailedImageWithMaxPixelDimension:(NSInteger)dimension fromImageData:(NSData *)data;
 + (NSString *)stringFromRequestDuration:(NSTimeInterval)duration;
 + (NSString *)statusCodeStringFromURLResponse:(NSURLResponse *)response;
-+ (NSDictionary *)dictionaryFromQuery:(NSString *)query;
++ (BOOL)isErrorStatusCodeFromURLResponse:(NSURLResponse *)response;
++ (NSDictionary<NSString *, id> *)dictionaryFromQuery:(NSString *)query;
 + (NSString *)prettyJSONStringFromData:(NSData *)data;
 + (BOOL)isValidJSONData:(NSData *)data;
 + (NSData *)inflatedDataFromCompressedData:(NSData *)compressedData;
 
-+ (NSArray *)allWindows;
++ (NSArray<UIWindow *> *)allWindows;
 
 // Swizzling utilities
 

@@ -24,7 +24,7 @@
 @property (nonatomic, strong) FLEXWindow *explorerWindow;
 @property (nonatomic, strong) FLEXExplorerViewController *explorerViewController;
 
-@property (nonatomic, readonly, strong) NSMutableArray *userGlobalEntries;
+@property (nonatomic, readonly, strong) NSMutableArray<FLEXGlobalsTableViewControllerEntry *> *userGlobalEntries;
 
 @end
 
@@ -44,7 +44,7 @@
 {
     self = [super init];
     if (self) {
-        _userGlobalEntries = [[NSMutableArray alloc] init];
+        _userGlobalEntries = [NSMutableArray array];
     }
     return self;
 }
@@ -113,6 +113,16 @@
 - (void)setNetworkResponseCacheByteLimit:(NSUInteger)networkResponseCacheByteLimit
 {
     [[FLEXNetworkRecorder defaultRecorder] setResponseCacheByteLimit:networkResponseCacheByteLimit];
+}
+
+- (void)setNetworkRequestHostBlacklist:(NSArray<NSString *> *)networkRequestHostBlacklist
+{
+    [FLEXNetworkRecorder defaultRecorder].hostBlacklist = networkRequestHostBlacklist;
+}
+
+- (NSArray<NSString *> *)hostBlacklist
+{
+    return [FLEXNetworkRecorder defaultRecorder].hostBlacklist;
 }
 
 #pragma mark - FLEXWindowEventDelegate
@@ -302,7 +312,7 @@
 
 - (UIScrollView *)firstScrollView
 {
-    NSMutableArray *views = [[[[UIApplication sharedApplication] keyWindow] subviews] mutableCopy];
+    NSMutableArray<UIView *> *views = [[[[UIApplication sharedApplication] keyWindow] subviews] mutableCopy];
     UIScrollView *scrollView = nil;
     while ([views count] > 0) {
         UIView *view = [views firstObject];
